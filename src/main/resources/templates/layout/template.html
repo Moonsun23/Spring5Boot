@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>index</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/project.css">
+
+
+
+</head>
+<body>
+    <div class="container">
+        <th:block th:replace="layout/header :: header"></th:block>
+<!--     layout에 있는 header.html 안에 있는 fragment 중에서 header를 넣어라..   -->
+
+        <th:block layout:fragment="content"></th:block>
+
+        <th:block th:replace="layout/footer :: footer"></th:block>
+
+    </div>
+
+
+
+    <!-- login modal   (bootstrap) -->
+    <th:block th:replace="layout/login_modal :: login_modal"></th:block>
+
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/project.js"></script>
+</body>
+</html>
