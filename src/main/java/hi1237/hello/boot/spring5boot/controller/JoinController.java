@@ -14,12 +14,32 @@ public class JoinController {
 
     @GetMapping("/agree")
     public String list(){
-        logger.info("board/list 호출!");
+        logger.info("join/agree 호출!");
 
-        return "";
+        return "join/agree";
 
     }
+    @GetMapping("/checkme")
+    public String checkme(){
+        logger.info("checkme 호출!");
 
+        return "join/checkme";
+
+    }
+    @GetMapping("/joinme")
+    public String joinme(){
+        logger.info("joinme 호출!");
+
+        return "join/joinme";
+
+    }
+    @GetMapping("/joinok")
+    public String joinok(){
+        logger.info("joinok 호출!");
+
+        return "join/joinok";
+
+    }
 
 
 }
