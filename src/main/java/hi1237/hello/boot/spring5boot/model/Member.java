@@ -1,4 +1,4 @@
-package hi1237.hello.boot.spring5boot.dao;
+package hi1237.hello.boot.spring5boot.model;
 
 
 import lombok.*;
