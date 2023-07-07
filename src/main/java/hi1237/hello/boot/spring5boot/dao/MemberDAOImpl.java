@@ -20,6 +20,7 @@ public class MemberDAOImpl implements MemberDAO{
     // 단, 생성자 주입방식 사용!
     @Autowired
     final MemberMapper memberMapper;
+    final MemberMapper insertMapper;
 
     @Autowired
     private SqlSession sqlSession;
@@ -35,6 +36,8 @@ public class MemberDAOImpl implements MemberDAO{
 
     @Override
     public List<Member> selectMember() {
-        return null;
+        return memberMapper.selectMember();
     }
+
+
 }
