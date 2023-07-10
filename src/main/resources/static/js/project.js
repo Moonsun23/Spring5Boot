@@ -38,11 +38,35 @@ cancelbtn2?.addEventListener('click', () => {
 });
 
 // joinme
-let zipbtn= document.querySelector("#findzipbtn");
+let fzipbtn= document.querySelector("#findzipbtn");
+let zipbtn= document.querySelector("#zipbtn");
 let dong = document.querySelector("#dong");
+let zipmodal = document.querySelector("#zipmodal");
+
 let addrlist = document.querySelector("#addrlist");
 let sendzip = document.querySelector("#sendzip");
+let modal = null;           // 우편번호 모달
 
+zipbtn?.addEventListener('click', () => {                   // showzipaddr 보다 먼저 실행되어야 해서 앞에 써줌// 우편번호찾기에서 '선택하고 닫기' 누르면 기존 선택한것이 지워지도록 해주는 코드
+    while(addrlist.lastChild){
+        addrlist.removeChild(addrlist.lastChild);           //removechild 를 써서 자식요소만 지우도록..
+        // while 문으로.. 남아있는 주소리스트가 있으면 모두 지우도록 addrlist의 removeChild..
+
+    }   // 이전 검색 결과 지움
+    dong.value = '';    // 이전 검색 키워드도 지우고
+
+    // 다시 새창을 띄울수있도록 아래코드
+
+    //let mymodal = null;
+    try {
+        modal = new bootstrap.Modal(zipmodal, {});
+       // modal = mymodal;
+    } catch (e) { }
+
+    modal.show();     // 모달창 띄우기
+
+
+});
 
 const showzipaddr = (jsons) => {
     jsons = JSON.parse(jsons);
@@ -55,7 +79,7 @@ const showzipaddr = (jsons) => {
     });
     addrlist.innerHTML = addr;
 };
-zipbtn?.addEventListener('click', () => {
+fzipbtn?.addEventListener('click', () => {
     if (dong.value === '') {
         alert('동이름을 입력하세요!!');
         return;
@@ -78,6 +102,10 @@ sendzip?.addEventListener('click', () =>{
         frm.zip1.value = zip.split('-')[0];
         frm.zip2.value = zip.split('-')[1];
         frm.addr1.value = vaddr;
+
+
+        modal.hide(); // modal창 닫기 코드
+
 
 
 
