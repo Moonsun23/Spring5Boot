@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class MemberDAOUnitTest {
 
     @Autowired
-    private MemberDAO memberDAOImpl;
+    private MemberDAO mdao;
 
     @Test
     @DisplayName("MemberDAO Test")   // 아래 void를 안쓰면 MemberDAO insert Test라고 써야...
@@ -36,7 +36,7 @@ public class MemberDAOUnitTest {
 
         Member m = new Member(null, "","","","","","","","", null);
 
-        int result = memberDAOImpl.insertMember(m);
+        int result = mdao.insertMember(m);
         System.out.println(result);
         assertEquals(result, 1);
 
@@ -47,9 +47,21 @@ public class MemberDAOUnitTest {
     @DisplayName("MemberDAO select Test")
     void selectMember() {
 
-        List<Member> results = memberDAOImpl.selectMember();
+        List<Member> results = mdao.selectMember();
         System.out.println(results);
         assertNotNull(results);
+
+
+    }
+
+    @Test
+    @DisplayName("MemberDAO checkUserid Test")
+    void checkUserid() {
+        String uid = "abc123";
+
+        int result = mdao.selectOneUserid(uid);
+        System.out.println(result);
+        assertEquals(result, 1);
 
 
     }
