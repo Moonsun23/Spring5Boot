@@ -44,7 +44,7 @@ public class MemberServiceUnitTest {
     }
 
     @Test
-    @DisplayName("MemberService read Test")   // 아래 void를 안쓰면 MemberDAO insert Test라고 써야...
+    @DisplayName("MemberService read Test")
     void readMember() {
 
         List<Member> results = msrv.readMember();
@@ -55,7 +55,7 @@ public class MemberServiceUnitTest {
     }
 
     @Test
-    @DisplayName("MemberService readOneMember Test")   // 아래 void를 안쓰면 MemberDAO insert Test라고 써야...
+    @DisplayName("MemberService readOneMember Test")
     void readOneMember() {
         Member m = new Member();
         m.setUserid("abc123");
