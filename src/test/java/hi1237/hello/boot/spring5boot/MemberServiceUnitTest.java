@@ -53,4 +53,18 @@ public class MemberServiceUnitTest {
 
 
     }
+
+    @Test
+    @DisplayName("MemberService readOneMember Test")   // 아래 void를 안쓰면 MemberDAO insert Test라고 써야...
+    void readOneMember() {
+        Member m = new Member();
+        m.setUserid("abc123");
+        m.setPasswd("987xyz");
+
+        Member result = msrv.readOneMember(m);
+        System.out.println(result);
+        assertNotNull(result);
+
+
+    }
 }
