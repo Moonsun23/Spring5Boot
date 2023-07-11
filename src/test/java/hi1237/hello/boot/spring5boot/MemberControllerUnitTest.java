@@ -37,6 +37,7 @@ public class MemberControllerUnitTest {
                 .param("userid", "abc1234ada")
                 .param("passwd", "")
                 .param("name", "")
+                .param("jumin", "")
                 .param("email", "abc1234dc")
                 .param("zipcode", "")
                 .param("addr1", "")

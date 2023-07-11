@@ -34,7 +34,7 @@ public class MemberDAOUnitTest {
     @DisplayName("MemberDAO Test")   // 아래 void를 안쓰면 MemberDAO insert Test라고 써야...
     void insertMember() {
 
-        Member m = new Member(null, "","","","","","","","", null);
+        Member m = new Member(null, "","","","","","","","","", null);
 
         int result = mdao.insertMember(m);
         System.out.println(result);
