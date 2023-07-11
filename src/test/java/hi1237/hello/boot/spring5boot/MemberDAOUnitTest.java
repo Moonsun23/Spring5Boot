@@ -65,4 +65,18 @@ public class MemberDAOUnitTest {
 
 
     }
+
+    @Test
+    @DisplayName("MemberDAO selectOneMember Test")
+    void selectOneMember() {
+        Member m = new Member();
+        m.setUserid("abc123");
+        m.setPasswd("987xyz");
+
+        Member result = mdao.selectOneMember(m);
+        System.out.println(result);
+        assertNotNull(result);
+
+
+    }
 }
