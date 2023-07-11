@@ -251,8 +251,14 @@ loginbtn?.addEventListener('click', ()=>{
 
     }
 
+});
 
+//logout
 
+let lgoutbtn = document.querySelector("#lgoutbtn");
+
+lgoutbtn?.addEventListener('click', () =>{
+    location.href = '/join/logout';
 });
 
 
