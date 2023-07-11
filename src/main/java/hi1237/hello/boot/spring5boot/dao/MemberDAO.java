@@ -15,4 +15,7 @@ public interface MemberDAO {
 
 
     int selectOneUserid(String uid);
+
+    Member selectOneMember(Member m);
+    // interface를 추가..후 임플리 가서 메서드 추가
 }
