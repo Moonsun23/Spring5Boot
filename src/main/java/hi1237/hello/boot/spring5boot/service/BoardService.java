@@ -9,7 +9,7 @@ public interface BoardService {
     boolean saveBoard(Board b);
             // 데이터 추가하는거
 
-    List<Board> readBoard();
+    List<Board> readBoard(Integer cpg);
 
     Board readOneBoard(String bno);
 }

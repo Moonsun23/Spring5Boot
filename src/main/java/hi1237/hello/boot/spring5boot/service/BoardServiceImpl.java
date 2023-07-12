@@ -19,8 +19,10 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<Board> readBoard() {
-        return bdao.selectBoard();
+    public List<Board> readBoard(Integer cpg) {
+        int stnum = (cpg -1) * 25;
+        // 0부터 24번까지 가져오는 개념으로 이해.
+        return bdao.selectBoard(stnum);
     }
 
     @Override
