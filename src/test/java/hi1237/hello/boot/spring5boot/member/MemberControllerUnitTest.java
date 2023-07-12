@@ -1,4 +1,4 @@
-package hi1237.hello.boot.spring5boot;
+package hi1237.hello.boot.spring5boot.member;
 
 
 import org.junit.jupiter.api.DisplayName;
