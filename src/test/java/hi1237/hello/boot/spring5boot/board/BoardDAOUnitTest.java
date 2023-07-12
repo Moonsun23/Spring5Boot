@@ -42,5 +42,18 @@ public class BoardDAOUnitTest {
 
     }
 
+    @Test
+    @DisplayName("BoardDAO selectOne Test")
+    void selectOneBoard() {
+        String bno = "1234";
+
+        Board result = bdao.selectOneBoard(bno);
+
+        // System.out.println(results);
+        assertNotNull(result);
+
+
+    }
+
 
 }
