@@ -45,6 +45,16 @@ public class BoardController {
 
     }
 
+    //`m.addAttribute`는 Thymeleaf의 `Model` 객체에 데이터를 추가하는 역할을 합니다.
+    //
+    //`Model` 객체는 컨트롤러에서 뷰로 데이터를 전달하기 위해 사용됩니다. `addAttribute` 메소드를 사용하여 특정 이름으로 데이터를 추가하면, 해당 데이터는 뷰에서 접근 가능하게 됩니다.
+    //
+    //예를 들어, 첫 번째 코드에서 `m.addAttribute("bds", bsrv.readBoard(cpg));`라는 구문은 `bsrv.readBoard(cpg)`를 실행한 결과를 `bds`라는 이름으로 `Model` 객체에 추가합니다. 이렇게 하면 뷰에서 `bds`라는 이름으로 해당 데이터에 접근할 수 있습니다.
+    //
+    //두 번째 코드에서도 `m.addAttribute("bd", bsrv.readOneBoard(bno));`라는 구문을 사용하여 `bsrv.readOneBoard(bno)`의 결과를 `bd`라는 이름으로 `Model` 객체에 추가합니다. 이렇게 하면 뷰에서 `bd`라는 이름으로 해당 데이터에 접근할 수 있습니다.
+    //
+    //즉, `m.addAttribute`를 통해 컨트롤러에서 생성된 데이터를 뷰로 전달할 수 있습니다.
+
     @GetMapping("/write")
     public String write(){
         logger.info("board/write 호출!");
