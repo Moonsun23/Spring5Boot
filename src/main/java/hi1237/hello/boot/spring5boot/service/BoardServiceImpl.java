@@ -15,7 +15,11 @@ public class BoardServiceImpl implements BoardService {
     final BoardDAO bdao;
     @Override
     public boolean saveBoard(Board b) {
-        return false;
+        boolean isSaved = false;
+
+        if(bdao.insertBoard(b) > 0) isSaved = true;
+
+        return isSaved;
     }
 
     @Override

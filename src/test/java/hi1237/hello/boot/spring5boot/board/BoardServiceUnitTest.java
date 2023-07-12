@@ -11,6 +11,7 @@ import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.context.annotation.Import;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -51,6 +52,25 @@ public class BoardServiceUnitTest {
         Board result = bsrv.readOneBoard(bno);
         //System.out.println(results);
         assertNotNull(result);
+
+
+    }
+
+    @Test
+    @DisplayName("boardService save Test")
+    @Transactional
+    void saveBoard() {
+        Board b= new Board();
+        b.setUserid("abc123");
+        // 가입된 아이디만 글을 쓸 수 있어서 없는 아이디로 치면 테스트 실패 뜸
+        b.setTitle("테스트");
+        b.setContents("테스트");
+        b.setIpaddr("127.0.0.1");
+
+
+        boolean result = bsrv.saveBoard(b);
+        //System.out.println(results);
+        assertEquals(result, true);
 
 
     }
