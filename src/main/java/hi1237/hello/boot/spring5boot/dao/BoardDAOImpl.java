@@ -29,7 +29,8 @@ public class BoardDAOImpl implements BoardDAO{
 
     @Override
     public Board selectOneBoard(String bno) {
-        return null;
+
+        return boardMapper.selectOneBoard(bno);
     }
 }
 
