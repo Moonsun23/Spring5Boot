@@ -262,6 +262,38 @@ lgoutbtn?.addEventListener('click', () =>{
 });
 
 
+// board view (각 버튼의 id 값을 가져옴)
+
+
+// 새글쓰기
+let newbdbtn = document.querySelector("#newbdbtn");
+newbdbtn?.addEventListener('click', ()=>{
+    location.href= '/board/write';
+});
+
+// 수정하기
+let modbdbtn = document.querySelector("#modbdbtn");
+modbdbtn?.addEventListener('click', ()=>{
+    if(confirm("정말 수정하실?")) {
+        alert('아직 미지원 기능입니다');
+    }
+});
+
+// 삭제하기
+let rmvbdbtn = document.querySelector("#rmvbdbtn");
+rmvbdbtn?.addEventListener('click', ()=>{
+    if(confirm("정말 삭제하실?")) {
+        alert('아직 미지원 기능입니다');
+    }
+    // location.href= '/board/delete';
+});
+
+// 목록으로 돌아가기
+let lstbdbtn = document.querySelector("#lstbdbtn");
+lstbdbtn?.addEventListener('click', ()=>{
+    location.href= '/board/list/1';
+});
+
 
 
 
