@@ -2,13 +2,9 @@ package hi1237.hello.boot.spring5boot.board;
 
 
 import hi1237.hello.boot.spring5boot.dao.BoardDAOImpl;
-import hi1237.hello.boot.spring5boot.dao.MemberDAOImpl;
 import hi1237.hello.boot.spring5boot.model.Board;
-import hi1237.hello.boot.spring5boot.model.Member;
 import hi1237.hello.boot.spring5boot.service.BoardService;
 import hi1237.hello.boot.spring5boot.service.BoardServiceImpl;
-import hi1237.hello.boot.spring5boot.service.MemberService;
-import hi1237.hello.boot.spring5boot.service.MemberServiceImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
@@ -39,7 +35,9 @@ public class BoardServiceUnitTest {
     @DisplayName("BoardService read Test")
     void readBoard() {
 
-        List<Board> results = bsrv.readBoard();
+        int cpg=1;
+
+        List<Board> results = bsrv.readBoard(cpg);
         //System.out.println(results);
         assertNotNull(results);
 
