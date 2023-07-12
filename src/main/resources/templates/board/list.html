@@ -60,7 +60,8 @@
                         <tr th:each="bd : ${bds}">
                             <td th:text="${bd.bno}">1</td>  <!-- th:text를 쓰면 1 자리에 글자가 들어간다 지금 들어가있는 1은 자동으로 바꿔치기 된다.
                             td 태그 사이에 있는 문자열로 바꿔줘!!!!!!!!!-->
-                            <td th:text="${bd.title}">시간은 골든리트리버라고 친구!</td>
+                            <td><a th:href="|/board/view/${bd.bno}|"
+                                   th:text="${bd.title}">시간은 골든리트리버라고 친구!</a></td><!-- 버티컬 바를 넣어주면 문자열 속의 문자를 인식한다(자바스크립트에서 백틱과 비슷한 역할)-->
                             <td th:text="${bd.userid}">운영자</td>
                             <td th:text="${#strings.substring(bd.regdate,0,10)}">2023-05-01</td>
                             <!-- 0부터 10개까지 문자만 나오게.. 작성일자를 날짜까지만 나오게끔-->
