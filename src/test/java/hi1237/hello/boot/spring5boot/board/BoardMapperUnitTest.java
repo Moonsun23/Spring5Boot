@@ -70,6 +70,17 @@ public class BoardMapperUnitTest {
 
 
     }
+    @Test
+    @DisplayName("boardMapper updateView Test")
+    void updateViewBoard() {
 
+        String bno="800";
+
+        int result = boardMapper.updateViewBoard(bno);
+        //System.out.println(results);
+        assertEquals(result, 1);
+
+
+    }
 
 }
