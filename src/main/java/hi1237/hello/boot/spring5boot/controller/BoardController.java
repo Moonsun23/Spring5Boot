@@ -34,7 +34,7 @@ public class BoardController {
         m.addAttribute("cntpg", bsrv.countBoard());
         m.addAttribute("stpg", ((cpg -1) / 10) *10 +1);
 
-        // 만일 ??가 ???보다 크다면
+        // 만일 현재페이지가 총페이지수보다 크다면
         // cpg를 1로 강제 초기화(1페이지로 강제이동)
         if ( cpg > cntpg ) {
             return "redirect:/board/list/1";
@@ -83,6 +83,27 @@ public class BoardController {
             returnPage = "redirect:/board/list/1";
 
         return returnPage;
+
+    }
+
+    @GetMapping("/find/{cpg}/{findtype}/{findkey}")
+    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findtype,
+                       @PathVariable String findkey){
+        logger.info("board/find 호출!");
+
+        m.addAttribute("bds", bsrv.readFindBoard(cpg, findtype, findkey));
+        m.addAttribute("cpg", cpg);
+
+        int cntpg = bsrv.countBoard();
+        m.addAttribute("cntpg", bsrv.countBoard());
+        m.addAttribute("stpg", ((cpg -1) / 10) *10 +1);
+
+        if ( cpg > cntpg ) {
+            return "redirect:/board/list/1";
+        }
+
+
+        return "board/list";
 
     }
 
