@@ -83,4 +83,15 @@ public class BoardMapperUnitTest {
 
     }
 
+    @Test
+    @DisplayName("boardMapper countPage Test")
+    void countPage() {
+
+        int result = boardMapper.selectCountBoard();
+        //System.out.println(results);
+        assertNotNull(result);
+
+
+    }
+
 }
