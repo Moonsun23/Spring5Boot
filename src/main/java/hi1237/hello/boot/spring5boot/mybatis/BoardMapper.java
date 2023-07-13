@@ -16,6 +16,8 @@ public interface BoardMapper {
 
     Board selectOneBoard(String bno);
 
+    int updateViewBoard(String bno);
+
 
 
 }

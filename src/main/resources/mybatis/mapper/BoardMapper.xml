@@ -16,5 +16,11 @@
         select * from board2 where bno = #{bno}
     </select>
 
+    <!-- 조회수 증가시키는 코드-->
+
+    <update id="updateViewBoard">
+        update board2 set views = views + 1 where bno = #{bno}
+    </update>
+
 
 </mapper>
