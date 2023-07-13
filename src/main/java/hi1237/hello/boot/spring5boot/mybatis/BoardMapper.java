@@ -4,7 +4,7 @@ import hi1237.hello.boot.spring5boot.model.Board;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-
+import java.util.Map;
 
 
 @Mapper
@@ -19,6 +19,8 @@ public interface BoardMapper {
     int updateViewBoard(String bno);
 
     int selectCountBoard();
+
+    List<Board> selectFindBoard(Map<String, Object> params);
 
 
 
