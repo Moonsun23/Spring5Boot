@@ -79,8 +79,8 @@
             <div class="offset-1 col-10">
                 <nav>
                     <ul class="pagination justify-content-center">
-                        <li class="page-item"><a href="#" class="page-link">처음처럼</a></li>
-                        <li class="page-item"><a href="#" class="page-link">이전처럼</a></li>
+                        <li class="page-item"><a th:href="|/board/list/1|" class="page-link">처음처럼</a></li>
+                        <li class="page-item"><a th:href="|/board/list/${cpg - 1}|" class="page-link">이전처럼</a></li>
 
                         <th:block th:each="i : ${#numbers.sequence(1, 10)}">
                             <!-- 숫자를 다룰때 #numbers.. -->
@@ -91,7 +91,7 @@
                         </th:block>
 
 
-                        <li class="page-item"><a href="#" class="page-link">넥스트</a></li>
+                        <li class="page-item"><a th:href="|/board/list/${cpg + 1}|" class="page-link">넥스트</a></li>
                         <li class="page-item"><a href="#" class="page-link">엔드</a></li>
 
 
