@@ -29,6 +29,7 @@ public class BoardController {
         m.addAttribute("bds", bsrv.readBoard(cpg));
         //bsrv.readBoard를 실행해서 넘어온 결과가 bds로 넘어옴
         m.addAttribute("cpg", cpg);
+        m.addAttribute("cntpg", bsrv.countBoard());
 
         return "board/list";
 
@@ -71,10 +72,13 @@ public class BoardController {
         if(bsrv.saveBoard(b))
             returnPage = "redirect:/board/list/1";
 
-
         return returnPage;
 
     }
+
+
+
+
 
 
 
