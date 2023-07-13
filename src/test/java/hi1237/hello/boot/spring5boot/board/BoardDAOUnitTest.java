@@ -12,7 +12,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -82,6 +84,23 @@ public class BoardDAOUnitTest {
         int result = bdao.selectCountBoard();
         //System.out.println(results);
         assertNotNull(result);
+
+
+    }
+
+    @Test
+    @DisplayName("boardDAO findBoard Test")
+    void findBoard() {
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("findtype", "titcont");
+        params.put("findkey", "비가");
+        params.put("stnum", 0);
+
+        List<Board> results = bdao.selectFindBoard(params);
+        assertNotNull(results);
+
+        /* stnum 이 페이지 넘버..0번 페이지에 있는 내용 중 해당하는 것을 가져온다*/
 
 
     }
