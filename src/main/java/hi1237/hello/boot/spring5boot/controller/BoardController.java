@@ -30,6 +30,8 @@ public class BoardController {
         //bsrv.readBoard를 실행해서 넘어온 결과가 bds로 넘어옴
         m.addAttribute("cpg", cpg);
         m.addAttribute("cntpg", bsrv.countBoard());
+        m.addAttribute("stpg", ((cpg -1) / 10) *10 +1);
+
 
         return "board/list";
 
