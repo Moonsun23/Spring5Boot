@@ -40,7 +40,7 @@ alter table board2
     add constraint fkuid                -- 위에 foreign key 대신 여기 alter table로 써줘서 나중에 fkuid라는 값으로만 가져올 수 있게 해줌
         foreign key (userid) references member2 (userid);
 
-insert into member2 values()
+
 
 
 
