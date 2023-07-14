@@ -9,12 +9,16 @@
     </insert>
 
     <select id="lastPdsPno">
-
 <!--        select AUTO_INCREMENT -1 pno from information_schema.TABLES-->
 <!--        where TABLE_NAME = 'pds'-->
 
-        select last_insert_id() from pds
+        select last_insert_id() from pds limit 1,1
+    </select>
 
+
+    <select id="insertPdsAttach" parameterType="PdsAttach">
+        INSERT INTO pdsattach (pno, fname, ftype, fsize)
+        values (#{pno},#{fname},#{ftype},#{fsize})
     </select>
 
 <!--    <select id="selectPds" resultType="Pds">-->

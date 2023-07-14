@@ -2,18 +2,24 @@ package hi1237.hello.boot.spring5boot.mybatis;
 
 import hi1237.hello.boot.spring5boot.model.Pds;
 
+import hi1237.hello.boot.spring5boot.model.PdsAttach;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
-import java.util.Map;
 
 
 @Mapper
 public interface PdsMapper {
 
     int insertPds(Pds b);
+    // 자료실 저장
 
     int lastPdsPno();
+
+    int insertPdsAttach(PdsAttach pa);
+
+}
+
+    // 자료실의 첨부파일 저장
 
 //    List<Pds> selectpds(int stnum);
 //
@@ -32,4 +38,4 @@ public interface PdsMapper {
 
 
 
-}
+
