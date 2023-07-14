@@ -6,7 +6,7 @@
 <th:block layout:fragment="content">
     <div id="main"
          th:with="pglink=${ (#strings.isEmpty(fkey)) ?
-         '/board/list/' : '/board/find/'+ftype+'/'+fkey+'/'}">
+         '/board/list/' : '/board/find/' + ftype + '/' + fkey + '/'}">
         <!--fkey가 비었다면 /list 페이지로 보내고. 아니면 해당검색 페이지로 보내라..-->
         <!-- th:with는 타임리프에서 변수를 선언할수있다-->
         <div class="mt-5">
@@ -96,7 +96,7 @@
 
                         <!-- 버튼이 사라졌다가 나타날지/ 혹은 버튼이 있는데 활성화를 시킬지 말지의 차이로 구분 -->
 
-                        <th:block th:each="i : ${#numbers.sequence(stpg, stpg+9)}">
+                        <th:block th:each="i : ${#numbers.sequence(stpg, stpg + 9)}">
                             <!-- 숫자를 다룰때 #numbers.. -->
                             <!-- i라는 변수를 대입해서 페이지별로 넘어갈 수 있게-->
                             <!-- m= ((cpg -1) / 10) *10 +1 -->
