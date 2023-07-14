@@ -1,6 +1,7 @@
 package hi1237.hello.boot.spring5boot.dao;
 
 import hi1237.hello.boot.spring5boot.model.Pds;
+import hi1237.hello.boot.spring5boot.model.PdsAttach;
 import hi1237.hello.boot.spring5boot.mybatis.PdsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,19 +25,11 @@ public class PdsDAOImpl implements PdsDAO{
         return cnt;
     }
 
+    @Override
+    public int insertPdsAttach(PdsAttach pa) {
 
-
-
-
-
-
-
-
-
-
-
-
-
+        return pdsMapper.insertPdsAttach(pa);
+    }
 
 
 }
