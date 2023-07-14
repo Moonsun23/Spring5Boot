@@ -311,6 +311,38 @@ wrtbdbtn?.addEventListener('click', () => {
 
 });
 
+// board find
+
+// 검색하기 버튼
+let findbtn = document.querySelector("#findbtn");
+// 검색타입
+let findtype = document.querySelector("#findtype");
+// 검색창
+let findkey = document.querySelector("#findkey");
+
+findbtn?.addEventListener('click', ()=> {
+    if(findkey.value === '') alert('검색어를 입력하세요');
+    else {
+        location.href = `/board/find/${findtype.value}/${findkey.value}/1`;
+        // 검색창 내용: /board/find/1/title/비가와
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
