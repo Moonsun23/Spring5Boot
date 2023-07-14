@@ -28,8 +28,8 @@ checkbtn2?.addEventListener('click', () => {
     else if(frm.jumin2.value === "") alert('주민번호 뒷자리를 입력하세요');
     else if(!frm.infoagree.checked) alert('주민번호 처리에 동의하세요');
     else {
-       frm.method= 'post';
-       frm.submit();
+        frm.method= 'post';
+        frm.submit();
     }
 });
 cancelbtn2?.addEventListener('click', () => {
@@ -64,7 +64,7 @@ zipbtn?.addEventListener('click', () => {                   // showzipaddr 보�
     //let mymodal = null;
     try {
         modal = new bootstrap.Modal(zipmodal, {});
-       // modal = mymodal;
+        // modal = mymodal;
     } catch (e) { }
 
     modal.show();     // 모달창 띄우기
@@ -106,12 +106,12 @@ sendzip?.addEventListener('click', () =>{
     let frm = document.forms.joinfrm;
     let addr= addrlist.value;               // 선택한 주소 항목
     if (addr !== '') {
-            // 빈값이 아니라면 선택한 항목을 처리
+        // 빈값이 아니라면 선택한 항목을 처리
         // 123-456 서울 관악구 신림동(각 값을 주소항목 칸별로 넣어줘야 함)
         let zip = addr.split(' ')[0];               // 우편번호 추출
         let addrs = addr.split(' ');
         let vaddr = `${addrs[1]} ${addrs[2]} ${addrs[3]}`; // 주소추출
-            // 공백으로 나눠서 문자열을 나누고.. 나뉜건 배열에 담기고..
+        // 공백으로 나눠서 문자열을 나누고.. 나뉜건 배열에 담기고..
         frm.zip1.value = zip.split('-')[0];
         frm.zip2.value = zip.split('-')[1];
         frm.addr1.value = vaddr;
@@ -242,12 +242,12 @@ let lgfrm = document.querySelector("#lgnfrm")
 
 loginbtn?.addEventListener('click', ()=>{
     if(lguid.value === '') alert('아이디를 입력하세요!!!!!!');
-        else if(lgpwd.value === '') alert('비번을 입력하세요!!!');
+    else if(lgpwd.value === '') alert('비번을 입력하세요!!!');
 
-        else {
-            lgfrm.method = 'post';
-            lgfrm.action='/join/login';
-            lgfrm.submit();
+    else {
+        lgfrm.method = 'post';
+        lgfrm.action='/join/login';
+        lgfrm.submit();
 
     }
 
@@ -260,92 +260,3 @@ let lgoutbtn = document.querySelector("#lgoutbtn");
 lgoutbtn?.addEventListener('click', () =>{
     location.href = '/join/logout';
 });
-
-
-// board view (각 버튼의 id 값을 가져옴)
-
-
-// 새글쓰기
-let newbdbtn = document.querySelector("#newbdbtn");
-newbdbtn?.addEventListener('click', ()=>{
-    location.href= '/board/write';
-});
-
-// 수정하기
-let modbdbtn = document.querySelector("#modbdbtn");
-modbdbtn?.addEventListener('click', ()=>{
-    if(confirm("정말 수정하실?")) {
-        alert('아직 미지원 기능입니다');
-    }
-});
-
-// 삭제하기
-let rmvbdbtn = document.querySelector("#rmvbdbtn");
-rmvbdbtn?.addEventListener('click', ()=>{
-    if(confirm("정말 삭제하실?")) {
-        alert('아직 미지원 기능입니다');
-    }
-    // location.href= '/board/delete';
-});
-
-// 목록으로 돌아가기
-let lstbdbtn = document.querySelector("#lstbdbtn");
-lstbdbtn?.addEventListener('click', ()=>{
-    location.href= '/board/list/1';
-});
-
-// board write
-
-let wrtbdbtn = document.querySelector("#wrtbdbtn");
-wrtbdbtn?.addEventListener('click', () => {
-    let bfrm= document.forms.bdfrm;
-    if(bfrm.title.value === '') alert('제목을 입력하세요!!!!!!');
-    else if(bfrm.contents.value === '') alert('본문 내용을 입력하세요!!!');
-    else if(grecaptcha.getResponse() === '') alert('자동가입방지를 체크하세욥!!');
-    else {
-        bfrm.method = 'post';
-     //   bfrm.action='/board/list';
-        bfrm.submit();
-
-    }
-
-});
-
-// board find
-
-// 검색하기 버튼
-let findbtn = document.querySelector("#findbtn");
-// 검색타입
-let findtype = document.querySelector("#findtype");
-// 검색창
-let findkey = document.querySelector("#findkey");
-
-findbtn?.addEventListener('click', ()=> {
-    if(findkey.value === '') alert('검색어를 입력하세요');
-    else {
-        location.href = `/board/find/${findtype.value}/${findkey.value}/1`;
-        // 검색창 내용: /board/find/1/title/비가와
-    }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
