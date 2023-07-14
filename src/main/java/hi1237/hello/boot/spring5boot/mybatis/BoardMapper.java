@@ -22,6 +22,11 @@ public interface BoardMapper {
 
     List<Board> selectFindBoard(Map<String, Object> params);
 
+    int countFindBoard(Map<String, Object> params);
+//    boardMapper에서 추가하고 여기로 넘어옴
+
+
+
 
 
 }

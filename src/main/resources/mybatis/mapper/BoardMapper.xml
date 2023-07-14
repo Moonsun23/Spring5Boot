@@ -45,6 +45,19 @@
 
     </select>
 
+    <!-- 동적질의문으로 검색 기능 구현 2 : 검색했을 때 나오는 페이지네이션 -->
+    <!-- 단, 컬럼명이나 테이블명에는 #{} 가 아닌 ${}를 사용한다. -->
+    <select id="countFindBoard" parameterType="map">
+        select ceil(count(bno) / 25) cntfpg from board2
+        <!--검색결과 나올 때 어캐 나올지...-->
+        <if test="findtype != 'titcont'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+        <if test="findtype == 'titcont'">
+            where title like concat('%', #{findkey}, '%')
+            or contents like concat('%', #{findkey}, '%')
+        </if>
 
+    </select>
 
 </mapper>
