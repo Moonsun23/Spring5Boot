@@ -74,12 +74,26 @@ public class BoardControllerUnitTest {
     void findBoard() throws Exception {
 
 
-        mvc.perform(get("/board/find/1/title/비가와"))
+        mvc.perform(get("/board/find/title/비가와/1"))
 
                 .andExpect(status().isOk())
                 .andDo(print());
 
     }
+
+//    @Test
+//    @DisplayName("BoardController countFind Test")
+//
+//    void countFindBoard() throws Exception {
+//
+//
+//        mvc.perform(get("/board/find/title/비가와/1"))
+//
+//                .andExpect(status().isOk())
+//                .andDo(print());
+//
+//    }
+
 
 
 }
