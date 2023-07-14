@@ -100,4 +100,15 @@ public class BoardServiceUnitTest {
         assertNotNull(results);
     }
 
+    @Test
+    @DisplayName("boardService countFindBoard Test")
+    void countFindBoard() {
+
+        String ftype = "title";
+        String fkey = "비가와";
+
+        int result = bsrv.countFindBoard(ftype, fkey);
+        assertNotNull(result);
+    }
+
 }
