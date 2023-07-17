@@ -101,3 +101,18 @@ create table pdsattach (
 alter table pdsattach
     add constraint fkpno                -- 위에 foreign key 대신 여기 alter table로 써줘서 나중에 fkuid라는 값으로만 가져올 수 있게 해줌
         foreign key (pno) references pds (pno);
+
+
+
+
+-- join
+select * from pds p join pdsattach pa
+                         using (pno) where p.pno = '11';
+
+-- view(ppa: join한 테이블// 가상테이블)
+create view ppa
+as
+select * from pds p join pdsattach pa
+                         using (pno);
+
+select * from ppa where pno= '11';
