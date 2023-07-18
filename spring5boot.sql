@@ -116,3 +116,34 @@ select * from pds p join pdsattach pa
                          using (pno);
 
 select * from ppa where pno= '11';
+
+-- comments
+
+create table pdscomments(
+  cno                       int                 auto_increment,
+  comments              mediumtext      not null,
+  userid                    varchar(18)     not null,
+  regdate                 datetime         default current_timestamp,
+  pno                       int                 not null,
+  ref                        int                 not null,
+  primary key(cno)
+);
+
+-- 같은 테이블 내에서도 외래키 설정하기(댓글이 ..........몇번글에 달린 댓글인지 보기??)
+alter table pdscomments
+    add constraint fkrefcno
+        foreign key (ref) references pdscomments(cno);
+
+alter table pdscomments
+    add constraint fkpnocno
+        foreign key (pno) references pds(pno);
+
+insert into pdscomments(userid, comments, pno, ref) values('abc123','댓글1','20','1');
+insert into pdscomments(userid, comments, pno, ref) values('abc123','댓글2','20','2');
+
+insert into pdscomments(userid, comments, pno, ref) values('abc123','댓글3','20','3');
+insert into pdscomments(userid, comments, pno, ref) values('abc123','댓글4','20','2');
+
+select * from pdscomments where pno = 20 order by ref;
+
+
