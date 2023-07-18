@@ -60,6 +60,18 @@
         select * from pdsattach where pno= #{pno}
     </select>
 
+    <insert id="insertPdsComment" parameterType="PdsComment">
+        insert into pdscomments (userid, comments, pno, ref)
+        values (#{userid}, #{comments}, #{pno}, #{ref})
+    </insert>
+
+    <select id="selectPdsComment" resultType="PdsComment">
+        select * from pdscomments where pno= #{pno}
+        order by ref
+    </select>
+
+
+
 <!--   테이블명은 테이블에 쓴 이름 그대로 가져와 쓴다(대소문자 구문해야함)-->
 
 <!--    <update id="updateViewPds">-->
