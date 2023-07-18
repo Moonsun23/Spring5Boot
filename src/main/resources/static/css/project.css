@@ -32,3 +32,13 @@
     vertical-align: top;
     /* vertical-align 해주니까 글이 맨위정렬로 바뀜*/
 }
+
+.cmtbg {
+    background: yellow;
+    padding: 5px;
+}
+
+.rpybg {
+    background: lime;
+    padding: 5px;
+}
