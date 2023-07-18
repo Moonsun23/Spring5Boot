@@ -17,6 +17,10 @@ public interface PdsService {
     int countPds();
 
     Pds readOnePds(String pno);
+
+    String readOnePdsAttach(String pno);
+
+    Map<String, Object> getHeaderResource(String fname);
 }
 
 
