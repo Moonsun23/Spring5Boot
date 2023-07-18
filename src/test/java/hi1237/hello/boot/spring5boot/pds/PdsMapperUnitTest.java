@@ -3,6 +3,7 @@ package hi1237.hello.boot.spring5boot.pds;
 
 import hi1237.hello.boot.spring5boot.model.Board;
 import hi1237.hello.boot.spring5boot.model.Pds;
+import hi1237.hello.boot.spring5boot.model.PdsAttach;
 import hi1237.hello.boot.spring5boot.mybatis.PdsMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,5 +49,18 @@ public class PdsMapperUnitTest {
 
     }
 
+    @Test
+    @DisplayName("PdsMapper selectOnePA Test")
+
+    void selectOnePA() {
+
+        String pno = "23";
+
+        PdsAttach result = pdsMapper.selectOnePdsAttach(pno);
+
+        assertNotNull(result);
+
+
+    }
 
 }

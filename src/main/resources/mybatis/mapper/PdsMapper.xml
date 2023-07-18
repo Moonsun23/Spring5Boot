@@ -11,6 +11,7 @@
         <result column="fsize" property="fsize"/>
         <result column="fdown" property="fdown"/>
     </resultMap>
+<!--위와 같이 정의된 것들을 아래와 맞춰서...? -->
 
     <resultMap id="ppa" type="Pds">
         <result column="pno" property="pno"/>
@@ -21,7 +22,7 @@
         <result column="views" property="views"/>
         <result column="contents" property="contents"/>
         <result column="ipaddr" property="ipaddr"/>
-
+<!-- pds 컬럼명과 동일하게 property를 맞춰야 함 -->
         <collection property="pa" resultMap="pa"/>
     </resultMap>
 
@@ -54,6 +55,12 @@
     <select id="selectCountPds">
             select ceil(count(pno) / 25) cntpg from pds
     </select>
+
+    <select id="selectOnePdsAttach" resultType="PdsAttach">
+        select * from pdsattach where pno= #{pno}
+    </select>
+
+<!--   테이블명은 테이블에 쓴 이름 그대로 가져와 쓴다(대소문자 구문해야함)-->
 
 <!--    <update id="updateViewPds">-->
 <!--        update Pds2 set views = views + 1-->
