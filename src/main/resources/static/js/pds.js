@@ -65,5 +65,51 @@ findbtn?.addEventListener('click', ()=> {
     }
 });
 
+//pds comment
+
+let newcmtbtn = document.querySelector("#newcmtbtn");
+newcmtbtn?.addEventListener('click', () =>{
+    let frm=document.forms.cmtfrm;
+
+    if(frm.userid.value === '') alert('로그인 하세요!');
+    else if(frm.pno.value === '') alert('pno 확인하세여!');
+    else if(frm.comments.value === '') alert('댓글입력하세여!');
+    else{
+        frm.method = 'post';
+        frm.action = '/pds/cmt/write';
+        // PdsController의 post 에 설정한 링크를 가져온다.
+        frm.submit();
+
+    }
+});
+
+// pds reply
+let modal =null;
+const refno= document.querySelector("#ref");
+const showReply = (ref) => {
+    refno.value = ref;    // 대댓글을 작성할 댓글의 댓글번호 cno를 알아냄
+
+
+    modal = new bootstrap.Modal(replyModal, {});
+
+    modal.show();
+};
+
+const replybtn= document.querySelector("#replybtn");
+const frm = document.forms.replyfrm;
+replybtn?.addEventListener('click', ()=>{
+    if(frm.comments.value === '') alert('대댓글을 작성하세요.......');
+    else if(frm.ref.value === '') alert('댓글번호가 없는 비정상적인 요청입니다.....');
+    else if(frm.pno.value === '') alert('본문글이 없는 비정상적인 요청입니다.....');
+    else {
+        frm.method = 'post';
+        frm.action = '/pds/reply/write';
+        frm.submit();
+
+    }
+
+
+
+});
 
 
