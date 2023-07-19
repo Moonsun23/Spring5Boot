@@ -28,6 +28,8 @@ public interface PdsMapper {
 
     List<PdsComment> selectPdsComment(String pno);
 
+    int insertPdsReply(PdsComment pc);
+
 //    int updateViewPds(String bno);
 //
 //    List<Pds> selectFindPds(Map<String, Object> params);

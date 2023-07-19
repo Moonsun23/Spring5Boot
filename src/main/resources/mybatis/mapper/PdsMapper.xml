@@ -62,13 +62,18 @@
 
     <insert id="insertPdsComment" parameterType="PdsComment">
         insert into pdscomments (userid, comments, pno, ref)
-        values (#{userid}, #{comments}, #{pno}, #{ref})
+        values (#{userid}, #{comments}, #{pno}, last_insert_id() + 1)
     </insert>
 
     <select id="selectPdsComment" resultType="PdsComment">
         select * from pdscomments where pno= #{pno}
         order by ref
     </select>
+
+    <insert id="insertPdsReply" parameterType="PdsComment">
+        insert into pdscomments (userid, comments, pno, ref)
+        values (#{userid}, #{comments}, #{pno}, #{ref})
+    </insert>
 
 
 
