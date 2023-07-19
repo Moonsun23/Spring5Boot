@@ -1,5 +1,6 @@
 package hi1237.hello.boot.spring5boot.service;
 
+import hi1237.hello.boot.spring5boot.model.PdsComment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -76,6 +77,21 @@ public class PdsServiceImpl implements PdsService {
 
 
         return objs;
+    }
+
+    @Override
+    public boolean newPdsComment(PdsComment pc) {
+        return (pdao.insertPdsComment(pc) > 0) ? true : false;
+    }
+
+    @Override
+    public List<PdsComment> readPdsComment(String pno) {
+        return pdao.selectPdsComment(pno);
+    }
+
+    @Override
+    public boolean newPdsReply(PdsComment pc) {
+        return (pdao.insertPdsReply(pc) > 0) ? true : false;
     }
 
 }
