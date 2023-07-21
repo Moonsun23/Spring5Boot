@@ -147,3 +147,45 @@ insert into pdscomments(userid, comments, pno, ref) values('abc123','댓글4','2
 select * from pdscomments where pno = 20 order by ref;
 
 
+-- gallery
+
+create table gallery (
+         gno                     int                     auto_increment,
+         title                    varchar(100)       not null,
+         userid                  varchar(18)          not null,
+         regdate                datetime             default current_timestamp,
+         thumbs                 int                     default 0,
+         views                   int                     default 0,
+         contents               text                   not null,
+         ipaddr                  varchar(15)           not null,
+         primary key         (gno)
+
+);
+
+-- galattach
+
+create table galattach (
+                           gano                        int                         auto_increment,
+                           gno                         int                             not null,   -- 게시글 번호
+                           fname                       varchar(1024)              not null,  --  파일 이름, 날짜도 포함됨, uuid 포함(식별코드/ 이름이 중복될 경우를 대비한 절대중복되지 않는 유일무이한 코드)
+                           fsize                         varchar(256)                         not null,
+                           primary key (gano)
+
+);
+
+alter table gallery
+    add constraint fkguid                -- 위에 foreign key 대신 여기 alter table로 써줘서 나중에 fkuid라는 값으로만 가져올 수 있게 해줌
+        foreign key (userid) references member2 (userid);
+
+alter table galattach
+    add constraint fkgno                -- 위에 foreign key 대신 여기 alter table로 써줘서 나중에 fkuid라는 값으로만 가져올 수 있게 해줌
+        foreign key (gno) references gallery (gno);
+
+
+
+# gno		fname							fsize   ---> 이렇게 열마다 추가하지 않고 아래처럼 1열에 모두 넣어줌
+# 1		abc123.png						100KB
+# 1		987xyz.jpg						456KB
+#
+# gno		fname										    fsize
+# 1		abc123.png, 987xyz.jpg						100KB; 456KB
