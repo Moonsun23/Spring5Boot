@@ -31,7 +31,7 @@ public class GalleryController {
     public String list(Model m, @PathVariable Integer cpg) {
         logger.info("gallery/list 호출!");
 
-        m.addAttribute("gal", gsrv.readGallery(cpg));
+        m.addAttribute("gals", gsrv.readGallery(cpg));
         m.addAttribute("cpg", cpg);
         m.addAttribute("cntpg", gsrv.countGallery());
         m.addAttribute("stpg", ((cpg - 1) / 10) * 10 + 1);
