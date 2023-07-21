@@ -30,7 +30,7 @@ public class GalleryUtils {
     Logger logger = LogManager.getLogger(GalleryUtils.class);
 
     // 첨부파일 저장위치
-    @Value("{saveImgDir") private String saveImgDir;
+    @Value("${saveImgDir}") private String saveImgDir;
     // savedir (어플리케이션프로퍼티스에 쓴거 불러오기)
 
     public GalAttach processUpload(List<MultipartFile> attachs) {
