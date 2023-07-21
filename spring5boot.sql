@@ -189,3 +189,21 @@ alter table galattach
 #
 # gno		fname										    fsize
 # 1		abc123.png, 987xyz.jpg						100KB; 456KB
+
+
+-- view(gga: join한 테이블// 가상테이블)
+create view gga
+as
+select * from gallery g join galattach ga
+                         using (gno);
+
+select * from gga;
+
+create view gga0
+as
+select gno, title, userid, substring(regdate, 1, 10) regdate, thumbs, views, fname
+    from gallery g join galattach ga using (gno);
+
+# substring(regdate, 0, 10) regdate => if you use this code, you can only see yyyy-mm-dd
+
+select * from gga0;
