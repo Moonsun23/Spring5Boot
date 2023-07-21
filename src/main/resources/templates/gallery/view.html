@@ -41,15 +41,17 @@
                 <tr><td class="vcont" colspan="2">
                     <p th:text="${g.contents}">본문글</p>
                     <th:block th:each="img : ${#strings.arraySplit(g.ga.fname,';')}">
-                        <img th:src="|http://localhost/cdn/${img}|">
+                        <img th:src="|http://localhost/cdn/${img}|"
+                            class="img-fluid">  <!-- img-fluid 를 쓰면 큰 사진도 창에 맞게나옴-->
                     </th:block>
                 </td></tr>
 
                 <tr>
                     <td class="vinfo" colspan="2"
                         th:with="fsizes=${#strings.arraySplit(g.ga.fsize, ';')}"> <!-- th:with 변수선언-->
-                        <th:block th:each="f : ${fsizes}">
-                            <span th:text="|${f}KB|"></span>
+                        <th:block th:each="fn, stat : ${#strings.arraySplit(g.ga.fname, ';')}">
+                            <div th:text="|${fn} (${fsizes[__${stat.index}__]}KB)|"></div>
+                            <!-- $를 두번 쓰고 싶으면 언더바 2개를 쓰고 쓸 수 있다. stat:${#strings.arraySplit(g.ga.fname, ';')}에 달린 인덱스의 값 -->
                         </th:block>
                     </td>
                 </tr>
