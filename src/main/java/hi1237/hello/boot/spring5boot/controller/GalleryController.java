@@ -71,5 +71,17 @@ public class GalleryController {
 
         return returnPage;
     }
+
+    @GetMapping("/view/{gno}")
+    public String view(Model m, @PathVariable String gno){
+        logger.info("gallery/view 호출!");
+
+        m.addAttribute("g", gsrv.readOneGallery(gno));
+        //bsrv.readBoard를 실행해서 넘어온 결과가 bds로 넘어옴
+
+        return "gallery/view";
+
+    }
+
 }
 
