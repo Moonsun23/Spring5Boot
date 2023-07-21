@@ -19,6 +19,7 @@ public class GalleryServiceImpl implements GalleryService{
     final GalleryUtils galUtils;
     @Override
     public List<Gallery> readGallery(Integer cpg) {
+
         return gdao.selectGallery( cpg - 1);
     }
 
@@ -44,5 +45,10 @@ public class GalleryServiceImpl implements GalleryService{
         // 이미지 파일 정보 저장
         ga.setGno(gno + "");
         return (gdao.insertGalAttach(ga) > 0) ? true : false;
+    }
+
+    @Override
+    public Gallery readOneGallery(String gno) {
+        return gdao.selectOneGallery(gno);
     }
 }
